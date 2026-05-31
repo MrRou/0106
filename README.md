@@ -32,8 +32,11 @@ You can add videos to `videos.json` or use the admin UI. Supported types:
 - **Vimeo**: `type: "vimeo"`, provide `id` (video ID from URL)
 - **Google Drive**: `type: "gdrive"`, provide `id` (file ID from share link)
 - **MP4**: `type: "mp4"`, provide `src` (URL to MP4 file)
+- **Custom Embed**: `type: "embed"`, provide `code` (HTML embed code)
 
 Optional fields: `poster` (thumbnail image URL), `duration` (display string like "10:34")
+
+For custom embeds, the `code` field accepts any HTML/iframe code. Wrap responsive embeds in a padding-bottom container for proper scaling.
 
 Admin UI
 

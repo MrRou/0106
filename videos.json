@@ -30,6 +30,13 @@
       "id": "1example_google_drive_file_id",
       "title": "Google Drive Sample (replace ID with real file ID)",
       "poster": "https://via.placeholder.com/480x270?text=Google%20Drive"
+    },
+    {
+      "type": "embed",
+      "title": "Custom Embed Example",
+      "code": "<div style='position:relative;width:100%;padding-bottom:56.25%;'><iframe src='about:blank' style='position:absolute;top:0;left:0;width:100%;height:100%;' frameborder='0' allow='autoplay'></iframe></div>",
+      "poster": "https://via.placeholder.com/480x270?text=Custom%20Embed",
+      "duration": "custom"
     }
   ]
 }

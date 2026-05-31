@@ -58,26 +58,34 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   let videos = await loadData();
   renderList(videos);
 
+  const embedLabel = document.getElementById('embedLabel');
+  
   function updateLabels(){
     const type = typeSelect.value;
-    const idInput = form.elements['id'];
-    const srcInput = form.elements['src'];
     
     if(type==='youtube'){
       idLabel.textContent='YouTube ID';
       idLabel.style.display='block';
       srcLabel.style.display='none';
+      embedLabel.style.display='none';
     } else if(type==='vimeo'){
       idLabel.textContent='Vimeo ID';
       idLabel.style.display='block';
       srcLabel.style.display='none';
+      embedLabel.style.display='none';
     } else if(type==='gdrive'){
       idLabel.textContent='Google Drive File ID';
       idLabel.style.display='block';
       srcLabel.style.display='none';
+      embedLabel.style.display='none';
     } else if(type==='mp4'){
       idLabel.style.display='none';
       srcLabel.style.display='block';
+      embedLabel.style.display='none';
+    } else if(type==='embed'){
+      idLabel.style.display='none';
+      srcLabel.style.display='none';
+      embedLabel.style.display='block';
     }
   }
   
@@ -90,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     const entry = { type: f['type'].value, title: f['title'].value };
     if(['youtube','vimeo','gdrive'].includes(entry.type)) entry.id = f['id'].value;
     if(entry.type==='mp4') entry.src = f['src'].value;
+    if(entry.type==='embed') entry.code = f['embed'].value;
     if(f['poster'].value) entry.poster = f['poster'].value;
     if(f['duration'].value) entry.duration = f['duration'].value;
     videos.push(entry);

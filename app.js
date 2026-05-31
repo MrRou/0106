@@ -70,6 +70,10 @@ function openPlayer(v){
     iframe.src = `https://drive.google.com/file/d/${v.id}/preview`;
     iframe.allow = 'autoplay';
     container.appendChild(iframe);
+  } else if(v.type==='embed'){
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = v.code;
+    container.appendChild(wrapper);
   } else if(v.type==='mp4'){
     const video = document.createElement('video');
     video.controls = true;
