@@ -18,6 +18,18 @@
       "title": "Big Buck Bunny (MP4)",
       "duration": "10:34",
       "poster": "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    },
+    {
+      "type": "vimeo",
+      "id": "90509568",
+      "title": "Vimeo Sample Video",
+      "duration": "2:47"
+    },
+    {
+      "type": "gdrive",
+      "id": "1example_google_drive_file_id",
+      "title": "Google Drive Sample (replace ID with real file ID)",
+      "poster": "https://via.placeholder.com/480x270?text=Google%20Drive"
     }
   ]
 }

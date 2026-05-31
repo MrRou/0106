@@ -1,6 +1,6 @@
 Video Library
 
-A minimal static site showcasing embedded streaming videos (YouTube and MP4).
+A minimal static site showcasing embedded streaming videos (YouTube, Vimeo, Google Drive, and MP4).
 
 Run locally
 
@@ -26,7 +26,14 @@ Files
 - app.js - client logic
 - videos.json - sample video list
 
-You can add videos to `videos.json`. For YouTube, set `type` to `youtube` and provide `id`. For an MP4 file, set `type` to `mp4` and provide `src`.
+You can add videos to `videos.json` or use the admin UI. Supported types:
+
+- **YouTube**: `type: "youtube"`, provide `id` (video ID from URL)
+- **Vimeo**: `type: "vimeo"`, provide `id` (video ID from URL)
+- **Google Drive**: `type: "gdrive"`, provide `id` (file ID from share link)
+- **MP4**: `type: "mp4"`, provide `src` (URL to MP4 file)
+
+Optional fields: `poster` (thumbnail image URL), `duration` (display string like "10:34")
 
 Admin UI
 

@@ -28,19 +28,13 @@ function renderLibrary(videos){
     if(v.type==='youtube'){
       thumb.src = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
       thumb.alt = v.title;
-    } else if(v.type==='mp4'){
-      thumb.src = v.poster || 'https://via.placeholder.com/480x270?text=Video';
+    } else if(v.type==='vimeo'){
+      thumb.src = v.poster || `https://vimeo.com/api/v2/video/${v.id}.json`;
       thumb.alt = v.title;
-    }
-
-    const body = document.createElement('div');
-    body.className='card-body';
-    const title = document.createElement('h3');
-    title.className='title';
-    title.innerText = v.title;
-    const meta = document.createElement('div');
-    meta.className='meta';
-    meta.innerText = v.duration || '';
+      if(!v.poster) thumb.src = 'https://via.placeholder.com/480x270?text=Vimeo';
+    } else if(v.type==='gdrive'){
+      thumb.src = v.poster || 'https://via.placeholder.com/480x270?text=Google%20Drive';
+      thumb.alt = v.title;
 
     body.appendChild(title);
     body.appendChild(meta);
@@ -63,6 +57,17 @@ function openPlayer(v){
     iframe.src = `https://www.youtube.com/embed/${v.id}?autoplay=1`;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
+    container.appendChild(iframe);
+  } else if(v.type==='vimeo'){
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://player.vimeo.com/video/${v.id}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe);
+  } else if(v.type==='gdrive'){
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://drive.google.com/file/d/${v.id}/preview`;
+    iframe.allow = 'autoplay';
     container.appendChild(iframe);
   } else if(v.type==='mp4'){
     const video = document.createElement('video');
