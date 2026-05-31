@@ -3,20 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday, Dad!!!</title>
+  <title>Happy Birthday, Dad!</title>
   <style>
     * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
     body { margin: 0; background: #f5f5f5; color: #333; }
     header { background: #222; color: #fff; padding: 24px 16px; }
     header h1 { margin: 0 0 8px; font-size: 28px; }
-    header p { margin: 0; color: #aaa; font-size: 14px; }
+    header h3 { margin: 0; color: #ddd; font-size: 16px; font-weight: 400; }
     main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
     .video-section { margin-bottom: 48px; }
-    .video-section h2 { font-size: 20px; margin-top: 0; color: #222; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
+    .video-section h2 { font-size: 22px; margin-top: 0; color: #222; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
+    .section-grid { display: grid; gap: 20px; grid-template-columns: minmax(280px, 360px) 1fr; align-items: start; }
+    .video-thumbnail img { width: 100%; border-radius: 8px; display: block; object-fit: cover; }
+    .video-thumbnail p { margin: 12px 0 0; color: #555; font-size: 14px; }
     .video-wrapper { background: #000; border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; }
-    .video-wrapper iframe { width: 100%; height: 100%; border: 0; }
-    .video-wrapper video { width: 100%; height: 100%; }
+    .video-wrapper iframe, .video-wrapper video { width: 100%; height: 100%; border: 0; display: block; }
+    .video-wrapper video { background: #000; }
+    .note { font-size: 14px; color: #555; margin-top: 8px; }
     footer { text-align: center; padding: 24px 16px; color: #666; font-size: 12px; border-top: 1px solid #ddd; }
+    @media (max-width: 860px) { .section-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -28,41 +33,72 @@
   <main>
     <section class="video-section">
       <h2>2022 - England v Australia</h2>
-      <div class="row"></div><img class="img-fluid" src="photos/PXL_20220709_120717103.MP.jpg" style="width:500px;"></div>
-      <div class="video-wrapper" style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/1197112180?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0"; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2022 - England v Australia"></iframe>
-      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div class="section-grid">
+        <div class="video-thumbnail">
+          <img src="photos/PXL_20220709_120717103.MP.jpg" alt="England v Australia thumbnail" />
+          <p>Local image from the match day.</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://player.vimeo.com/video/1197112180?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="2022 - England v Australia"></iframe>
+        </div>
+      </div>
     </section>
 
     <section class="video-section">
       <h2>2001-02 - Manchester United vs Bolton Wanderers</h2>
-      <div class="video-wrapper" style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://drive.google.com/file/d/1eAju0QV1ehB-zVr-g7_VxmBpfj2cJAj6/preview" frameborder="0"; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2001-02 - Manchester United vs Bolton Wanderers"></iframe>
+      <div class="section-grid">
+        <div class="video-thumbnail">
+          <img src="photos/PXL_20220709_120717103.MP.jpg" alt="Manchester United vs Bolton thumbnail" />
+          <p>Replace this image with a local photo for the game.</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1eAju0QV1ehB-zVr-g7_VxmBpfj2cJAj6/preview" allow="autoplay" title="2001-02 - Manchester United vs Bolton Wanderers"></iframe>
+        </div>
       </div>
     </section>
 
     <section class="video-section">
       <h2>2002-03 - Arsenal vs Bolton Wanderers</h2>
-      <div class="video-wrapper" style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://drive.google.com/file/d/14bNJRcSL8e7TGkTO2g1M1Qu0oddylXfr/preview" frameborder="0"; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2002-03 - Arsenal vs Bolton Wanderers"></iframe>
+      <div class="section-grid">
+        <div class="video-thumbnail">
+          <img src="photos/PXL_20220709_120717103.MP.jpg" alt="Arsenal vs Bolton thumbnail" />
+          <p>Use your own local image here.</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/14bNJRcSL8e7TGkTO2g1M1Qu0oddylXfr/preview" allow="autoplay" title="2002-03 - Arsenal vs Bolton Wanderers"></iframe>
+        </div>
       </div>
     </section>
 
     <section class="video-section">
       <h2>2003-04 - Wolverhampton vs Bolton Wanderers</h2>
-      <div class="video-wrapper" style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://drive.google.com/file/d/1F1akJZNDoVrt4q2uAvilVvmDikVcIZ1f/preview" frameborder="0"; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2003-04 - Wolverhampton vs Bolton Wanderers"></iframe>
+      <div class="section-grid">
+        <div class="video-thumbnail">
+          <img src="photos/PXL_20220709_120717103.MP.jpg" alt="Wolverhampton vs Bolton thumbnail" />
+          <p>Local image shown next to the video.</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1F1akJZNDoVrt4q2uAvilVvmDikVcIZ1f/preview" allow="autoplay" title="2003-04 - Wolverhampton vs Bolton Wanderers"></iframe>
+        </div>
       </div>
     </section>
-    
+
     <section class="video-section">
       <h2>2004-05 - Tottenham vs Bolton Wanderers</h2>
-      <div class="video-wrapper" style="padding:56.25% 0 0 0;position:relative;">
-        <iframe src="https://drive.google.com/file/d/17cLr6xCfOenebgl-yCzzui1mTBR-Pz1_/preview" frameborder="0"; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2004-05 - Tottenham vs Bolton Wanderers"></iframe>
+      <div class="section-grid">
+        <div class="video-thumbnail">
+          <img src="photos/PXL_20220709_120717103.MP.jpg" alt="Tottenham vs Bolton thumbnail" />
+          <p>Swap this with any local photo file in the photos folder.</p>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/17cLr6xCfOenebgl-yCzzui1mTBR-Pz1_/preview" allow="autoplay" title="2004-05 - Tottenham vs Bolton Wanderers"></iframe>
+        </div>
       </div>
     </section>
-
   </main>
 
+  <footer>
+    <p>Edit `index.html` to change the local image paths or embed URLs.</p>
+  </footer>
 </body>
 </html>
