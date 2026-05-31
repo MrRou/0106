@@ -4,28 +4,83 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Video Library</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { margin: 0; background: #f5f5f5; color: #333; }
+    header { background: #222; color: #fff; padding: 24px 16px; }
+    header h1 { margin: 0 0 8px; font-size: 28px; }
+    header p { margin: 0; color: #aaa; font-size: 14px; }
+    main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+    .video-section { margin-bottom: 48px; }
+    .video-section h2 { font-size: 20px; margin-top: 0; color: #222; border-bottom: 2px solid #ddd; padding-bottom: 8px; }
+    .video-wrapper { background: #000; border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; }
+    .video-wrapper iframe { width: 100%; height: 100%; border: 0; }
+    .video-wrapper video { width: 100%; height: 100%; }
+    footer { text-align: center; padding: 24px 16px; color: #666; font-size: 12px; border-top: 1px solid #ddd; }
+  </style>
 </head>
 <body>
   <header>
     <h1>Video Library</h1>
-    <p>Click a video to stream it in the player.</p>
+    <p>A simple collection of embedded videos</p>
   </header>
 
   <main>
-    <div id="library" class="grid"></div>
-    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1197112180?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2022 - England v Australia"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-  
+    <!-- VIDEO 1: YouTube -->
+    <section class="video-section">
+      <h2>2022 - England v Australia</h2>
+      <div class="video-wrapper">
+        <iframe src="https://player.vimeo.com/video/1197112180?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="2022 - England v Australia"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+
+    <!-- VIDEO 2: YouTube -->
+    <section class="video-section">
+      <h2>Elephants Dream (YouTube)</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- VIDEO 3: Vimeo -->
+    <section class="video-section">
+      <h2>Sample Vimeo Video</h2>
+      <div class="video-wrapper">
+        <iframe src="https://player.vimeo.com/video/90509568" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- VIDEO 4: MP4 -->
+    <section class="video-section">
+      <h2>Big Buck Bunny (MP4)</h2>
+      <div class="video-wrapper">
+        <video controls>
+          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- VIDEO 5: Google Drive -->
+    <section class="video-section">
+      <h2>Sample Google Drive Video</h2>
+      <div class="video-wrapper">
+        <iframe src="https://drive.google.com/file/d/REPLACE_FILE_ID/preview" allow="autoplay"></iframe>
+      </div>
+    </section>
+
+    <!-- VIDEO 6: Custom Embed -->
+    <section class="video-section">
+      <h2>Custom Embed Section</h2>
+      <div class="video-wrapper">
+        <!-- Replace this with your embed code -->
+        <p style="color:#fff;padding:20px;">Embed code goes here</p>
+      </div>
+    </section>
   </main>
 
-  <div id="playerModal" class="modal hidden">
-    <div class="modal-content">
-      <button id="closeBtn" class="close">✕</button>
-      <div id="playerContainer"></div>
-    </div>
-
-   </div>
-
-  <script src="app.js"></script>
+  <footer>
+    <p>Edit index.html directly to add, remove, or modify videos.</p>
+  </footer>
 </body>
 </html>
