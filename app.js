@@ -54,15 +54,16 @@ function openPlayer(v){
   container.innerHTML='';
   if(v.type==='youtube'){
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${v.id}?autoplay=1`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1`;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
     container.appendChild(iframe);
   } else if(v.type==='vimeo'){
     const iframe = document.createElement('iframe');
     iframe.src = `https://player.vimeo.com/video/${v.id}?autoplay=1`;
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture';
     iframe.allowFullscreen = true;
+    iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-presentation');
     container.appendChild(iframe);
   } else if(v.type==='gdrive'){
     const iframe = document.createElement('iframe');
