@@ -1,0 +1,97 @@
+async function loadData(){
+  const stored = localStorage.getItem('videoLibraryData');
+  if(stored){
+    const data = JSON.parse(stored);
+    return data.videos || data;
+  }
+  const res = await fetch('videos.json');
+  const data = await res.json();
+  return data.videos;
+}
+
+function renderList(videos){
+  const list = document.getElementById('list');
+  list.innerHTML='';
+  videos.forEach((v,i)=>{
+    const card = document.createElement('div');
+    card.className='card';
+    const thumb = document.createElement('img');
+    thumb.className='thumb';
+    thumb.src = v.type==='youtube' ? `https://img.youtube.com/vi/${v.id}/hqdefault.jpg` : (v.poster || 'https://via.placeholder.com/480x270?text=Video');
+    const body = document.createElement('div');
+    body.className='card-body';
+    const title = document.createElement('h3');
+    title.className='title';
+    title.innerText = v.title;
+    const meta = document.createElement('div');
+    meta.className='meta';
+    meta.innerText = v.duration || '';
+    const remove = document.createElement('button');
+    remove.textContent = 'Remove';
+    remove.addEventListener('click',()=>{ videos.splice(i,1); renderList(videos); });
+
+    body.appendChild(title);
+    body.appendChild(meta);
+    body.appendChild(remove);
+    card.appendChild(thumb);
+    card.appendChild(body);
+    list.appendChild(card);
+  });
+}
+
+function downloadJSON(videos){
+  const blob = new Blob([JSON.stringify({videos},null,2)],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'videos.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener('DOMContentLoaded', async ()=>{
+  const form = document.getElementById('addForm');
+  const typeSelect = form.elements['type'];
+  const idLabel = document.getElementById('idLabel');
+  const srcLabel = document.getElementById('srcLabel');
+
+  let videos = await loadData();
+  renderList(videos);
+
+  typeSelect.addEventListener('change',()=>{
+    if(typeSelect.value==='youtube'){
+      idLabel.style.display='block';
+      srcLabel.style.display='none';
+    } else {
+      idLabel.style.display='none';
+      srcLabel.style.display='block';
+    }
+  });
+
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const f = e.target.elements;
+    const entry = { type: f['type'].value, title: f['title'].value };
+    if(entry.type==='youtube') entry.id = f['id'].value;
+    if(entry.type==='mp4') entry.src = f['src'].value;
+    if(f['poster'].value) entry.poster = f['poster'].value;
+    if(f['duration'].value) entry.duration = f['duration'].value;
+    videos.push(entry);
+    renderList(videos);
+    form.reset();
+  });
+
+  document.getElementById('saveLocal').addEventListener('click',()=>{
+    localStorage.setItem('videoLibraryData', JSON.stringify({videos}));
+    alert('Saved to localStorage. The public site will use this data when present.');
+  });
+
+  document.getElementById('downloadJson').addEventListener('click',()=> downloadJSON(videos));
+
+  document.getElementById('clearLocal').addEventListener('click',()=>{
+    if(confirm('Clear local saved library?')){
+      localStorage.removeItem('videoLibraryData');
+      alert('Local library cleared.');
+    }
+  });
+});

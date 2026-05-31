@@ -1,0 +1,23 @@
+{
+  "videos": [
+    {
+      "type": "youtube",
+      "id": "YE7VzlLtp-4",
+      "title": "Big Buck Bunny (YouTube sample)",
+      "duration": "10:34"
+    },
+    {
+      "type": "youtube",
+      "id": "aqz-KE-bpKQ",
+      "title": "Elephants Dream (YouTube sample)",
+      "duration": "10:53"
+    },
+    {
+      "type": "mp4",
+      "src": "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "title": "Big Buck Bunny (MP4)",
+      "duration": "10:34",
+      "poster": "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    }
+  ]
+}

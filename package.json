@@ -1,0 +1,10 @@
+{
+  "name": "video-library",
+  "version": "1.0.0",
+  "description": "Simple static video library with embedded streaming",
+  "scripts": {
+    "start": "npx http-server -c-1 -p 3000"
+  },
+  "author": "",
+  "license": "MIT"
+}

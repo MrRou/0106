@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Video Library Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Video Library — Admin</h1>
+  </header>
+
+  <main style="padding:16px;">
+    <form id="addForm" style="max-width:720px;display:grid;gap:8px;">
+      <label>Title<input name="title" required /></label>
+      <label>Type
+        <select name="type">
+          <option value="youtube">YouTube</option>
+          <option value="mp4">MP4</option>
+        </select>
+      </label>
+      <label id="idLabel">YouTube ID<input name="id" /></label>
+      <label id="srcLabel" style="display:none">MP4 URL<input name="src" /></label>
+      <label>Poster (optional)<input name="poster" /></label>
+      <label>Duration (optional)<input name="duration" /></label>
+      <div style="display:flex;gap:8px;">
+        <button type="submit">Add Video</button>
+        <button id="saveLocal" type="button">Save to Local</button>
+        <button id="downloadJson" type="button">Download JSON</button>
+        <button id="clearLocal" type="button">Clear Local</button>
+      </div>
+    </form>
+
+    <section style="margin-top:16px;">
+      <h2>Current Videos</h2>
+      <div id="list" class="grid"></div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
