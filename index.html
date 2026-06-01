@@ -20,7 +20,8 @@
     .video-wrapper iframe, .video-wrapper video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
     .video-wrapper video { background: #000; }
     .choice-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 16px; }
-    .choice-card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,.05); font-size: 16px; color: #222; }
+    .choice-card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 1px 8px rgba(0,0,0,.05); font-size: 16px; color: #222; display: grid; gap: 12px; }
+    .choice-card img { width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover; }
     .note { font-size: 14px; color: #555; margin-top: 8px; }
     footer { text-align: center; padding: 24px 16px; color: #666; font-size: 12px; border-top: 1px solid #ddd; }
     @media (max-width: 860px) { .section-grid { grid-template-columns: 1fr; } }
